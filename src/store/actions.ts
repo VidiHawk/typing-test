@@ -8,7 +8,6 @@ export const TIMER_SET = "TIMERSET";
 export const TIMERID_SET = "TIMERIDSET";
 export const PREV_WORD = "PREVWORD";
 export const SET_WORDLIST = "SETWORDLIST";
-// export const SET_THEME = "SETTHEME";
 export const SET_TIME = "SETTIME";
 export const SET_REF = "SETREF";
 export const SET_CARET_REF = "SETCARETREF";
@@ -46,8 +45,7 @@ export const setCaretRef = (payload: RefObject<HTMLSpanElement>) => ({
 	payload,
 });
 
-// Prefrences Actions
-// export const setTheme = (payload: string) => ({ type: SET_THEME, payload });
+// Preferences Actions
 export const setTime = (payload: number) => ({ type: SET_TIME, payload });
 export const setType = (payload: string) => ({
 	type: SET_TYPE,

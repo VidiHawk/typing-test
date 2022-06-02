@@ -9,7 +9,6 @@ import {
 	APPEND_TYPED_HISTORY,
 	PREV_WORD,
 	SET_WORDLIST,
-	// SET_THEME,
 	SET_TIME,
 	SET_REF,
 	SET_CARET_REF,
@@ -18,7 +17,6 @@ import {
 
 export interface State {
 	preferences: {
-		theme: string;
 		timeLimit: number;
 		type: string;
 	};
@@ -38,7 +36,6 @@ export interface State {
 
 export const initialState: State = {
 	preferences: {
-		theme: "",
 		timeLimit: 0,
 		type: "",
 	},
@@ -142,8 +139,6 @@ const preferenceReducer = (
 	{ type, payload }: AnyAction
 ) => {
 	switch (type) {
-		// case SET_THEME:
-		// 	return { ...state, theme: payload };
 		case SET_TIME:
 			return {
 				...state,

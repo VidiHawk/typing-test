@@ -31,12 +31,12 @@ export default function Footer() {
 	// const [showList, setShowList] = useState<boolean>(false);
 	// useEffect(() => {
 	// 	const URL =
-	// 		"https://api.github.com/repos/salmannotkhan/typing-test/contributors";
+	// 		"https://api.github.com/repos/";
 	// 	fetch(URL)
 	// 		.then((res) => res.json())
 	// 		.then((data: Contributor[]) =>
 	// 			data.filter(
-	// 				(contributor) => contributor.login !== "salmannotkhan"
+	// 				(contributor) => contributor.login !== "xiguacontrib"
 	// 			)
 	// 		)
 	// 		.then((filtered) => setContributors(filtered));
@@ -44,9 +44,6 @@ export default function Footer() {
 
 	return (
 		<div className={`bottom-area ${timerId ? "hidden" : ""}`}>
-			<span className="hint">
-				<kbd>Ctrl</kbd> + <kbd>k</kbd> to open command pallet
-			</span>
 			<span className="hint">
 				<kbd>Tab</kbd> to restart test
 			</span>
@@ -66,35 +63,6 @@ export default function Footer() {
 						西瓜
 					</a>
 				</span>
-				{/* {showList ? (
-					<div className="contributor-list" onBlur={console.log}>
-						<h2>contributors</h2>
-						{contributors.map((contributor) => (
-							<a
-								className="contributor"
-								href={contributor.html_url}
-								target="_blank"
-								rel="noreferrer"
-								key={contributor.node_id}>
-								<img
-									height={50}
-									width={50}
-									src={contributor.avatar_url}
-									alt={`${contributor.login}'s avatar`}
-								/>
-								<div className="contributor-details">
-									<div>@{contributor.login}</div>
-									<div>
-										{contributor.contributions} commits
-									</div>
-								</div>
-							</a>
-						))}
-					</div>
-				) : null}
-				<button onClick={() => setShowList((s) => !s)}>
-					{showList ? "x close" : "{} contributors"}
-				</button> */}
 			</footer>
 		</div>
 	);

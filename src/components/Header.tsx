@@ -2,7 +2,6 @@ import { resetTest } from "helpers/resetTest";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-	// setTheme,
 	setTime,
 	setType,
 	setWordList,
@@ -10,7 +9,6 @@ import {
 } from "store/actions";
 import { State } from "store/reducer";
 import "stylesheets/Header.scss";
-import "stylesheets/AnimatedTheme.scss";
 
 export interface Options {
 	time: number[];
@@ -21,19 +19,16 @@ export interface Options {
 interface AnimationProps {
 	top: number;
 	left: number;
-	// theme: string;
 }
 
 export const options: Options = {
 	time: [5, 15, 30, 45, 60, 120],
-	// theme: ["default"],
 	type: ["words", "sentences", "text", "中文", "numbers"],
 };
 
 export default function Header() {
 	const {
 		preferences: { timeLimit, type },
-		// removed theme form above 
 		time: { timerId },
 	} = useSelector((state: State) => state);
 	const [animationProps, setAnimationProps] =
@@ -41,7 +36,6 @@ export default function Header() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		// const theme = localStorage.getItem("theme") || "default";
 		const type = localStorage.getItem("type") || "words";
 		const time = parseInt(localStorage.getItem("time") || "60", 10);
 		import(`wordlists/${type}.json`).then((words) =>
@@ -50,24 +44,8 @@ export default function Header() {
 		dispatch(timerSet(time));
 		dispatch(setType(type));
 		dispatch(setTime(time));
-		// dispatch(setTheme(theme));
 	}, [dispatch]);
 
-	// Set Theme
-	// useEffect(() => {
-	// 	if (theme) {
-	// 		document.querySelector(".theme")?.childNodes.forEach((el) => {
-	// 			if (el instanceof HTMLButtonElement)
-	// 				el.classList.remove("selected");
-	// 		});
-	// 		document
-	// 			.querySelector(`button[value="${theme}"]`)
-	// 			?.classList.add("selected");
-	// 		document.body.children[1].classList.remove(...options.theme);
-	// 		document.body.children[1].classList.add(theme);
-	// 		localStorage.setItem("theme", theme);
-	// 	}
-	// }, [dispatch, theme]);
 
 	// Set Time
 	useEffect(() => {
@@ -109,16 +87,6 @@ export default function Header() {
 				return;
 			}
 			switch (target.dataset.option) {
-				// case "theme":
-				// 	setTimeout(() => {
-				// 		dispatch(setTheme(target.value));
-				// 	}, 750);
-				// 	setAnimationProps({
-				// 		top: clientY,
-				// 		left: clientX,
-				// 		theme: target.value,
-				// 	});
-				// 	break;
 				case "time":
 					dispatch(setTime(+target.value));
 					break;
@@ -152,15 +120,6 @@ export default function Header() {
 					</div>
 				))}
 			</div>
-			{/* {animationProps ? (
-				<div
-					className={`animated-theme ${animationProps.theme}`}
-					style={{
-						top: animationProps.top,
-						left: animationProps.left,
-					}}
-					onAnimationEnd={() => setAnimationProps(null)}></div>
-			) : null} */}
 		</header>
 	);
 }

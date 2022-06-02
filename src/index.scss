@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/noto/specimen/Noto+Sans+SC?subset=chinese-simplified");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap');
 
 body {
 	margin: 0;
-	font-family: Inconsolata, monospace;
+	font-family: Inconsolata, Noto, monospace;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
